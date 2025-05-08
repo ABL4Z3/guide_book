@@ -1,0 +1,112 @@
+--------------------------------------------------------------
+GROQ :-
+
+
+
+groq api->   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
+groq api 2 ------->     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
+model ->  llama-3.1-8b-instant
+
+
+!pip install langchain-groq --quiet
+!pip install langchain_community --quiet
+!pip install -U langchain --quiet
+
+import os
+os.environ["GROQ_API_KEY"] = "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"
+
+from langchain_groq import ChatGroq
+
+llm = ChatGroq(
+    model="Llama-3.3-70B-Versatile",
+    temperature=0,
+    api_key="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"
+)
+
+messages = [
+    ("system", "You are a helpful assistant "),
+    ("human", ""),
+]
+
+# Generate the summary
+response = llm.invoke(messages)
+
+print("📝 News Summary:\n")
+print(response.content)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+OPEN-AI-KEY.....
+
+from openai import OpenAI
+
+client = OpenAI(
+  api_key="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"
+)
+
+completion = client.chat.completions.create(
+  model="gpt-4o-mini",
+  store=True,
+  messages=[
+    {"role": "user", "content": "write a haiku about ai"}
+  ]
+)
+
+print(completion.choices[0].message);
+
+-----------------------------------------------------------------------------------
+
+
+GEMINI AI :-
+
+from google import genai
+
+client = genai.Client(api_key="AIzaSyBj3-98oi4AP34vdAAmDBxWZ8JOZrTqaBI")
+text=""
+ggl=f"summerize it in to the points {text}"
+
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents=ggl,
+)
+
+print(response.text)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+OPENAI_API_KEY = "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"
+GROQ_API_KEY = "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"
+HUGGINGFACEHUB_API_TOKEN = "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"
+
+----------------------------------------------------------
+
+VIRTUAL ENV.
+
+python -m venv myenv
+
+myenv\Scripts\activate
+-----------------------------------------------------------
+
+for the roll back of changes upto last push into git :-
+
+git reset --hard HEAD
+
+-------------------------------------------------------------
+
+TO DIPLOY THE PROJECT ON THE AWS:--
+
+sudo su
+yum update -y
+mkdir <name>
+cd <name>
+wget <zip file downloaded link>
+unzip <name of zip file> ( try to run ls -lrt)
+cd <name of main folder>
+mv * /var/www/html/
+service httpd start
+
+---------------------------------------------------------------
